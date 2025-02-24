@@ -1,6 +1,6 @@
 # Instructions
 
-I have configured both environment variable `OTEL_JAVA_DISABLED_RESOURCE_PROVIDERS=io.opentelemetry.instrumentation.resources.ProcessResourceProvider` and jvm.option `-Dotel.java.disabled.resource.providers=io.opentelemetry.instrumentation.resources.ProcessResourceProvider`.
+The runtime enviroment is Liberty 24.0.0.12. Within this I have configured both environment variable `OTEL_JAVA_DISABLED_RESOURCE_PROVIDERS=io.opentelemetry.instrumentation.resources.ProcessResourceProvider` and jvm.option `-Dotel.java.disabled.resource.providers=io.opentelemetry.instrumentation.resources.ProcessResourceProvider` (for good measure).
 
 Please follow these steps to recreate the issue.
 
@@ -38,3 +38,5 @@ curl localhost:9080/api/docs
 ```
 
 Look in jaeger UI at http://locahost:16686/search and find results for TestEnv service. See in `Process` section that `process.command_line` is still there.
+
+You can also connect to the test2402 container and view /logs/trace.log, searching for `ProcessResourceProvider` to see that the property is being detected
