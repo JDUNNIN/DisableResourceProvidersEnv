@@ -19,7 +19,7 @@ Get jaeger container IP address using
 podman inspect -f {{.NetworkSettings.IPAddress}} <containerId>
 ```
 
-Update the file server.env to replace all of `<jaegerIp>` with the real container IP address.
+Update the file server.env to replace all of `10.88.0.2` with the real container IP address.
 
 Build the test container image using:
 ```
